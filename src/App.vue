@@ -1,12 +1,51 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <Header />
+    <Questions 
+    v-if="this.questions.length>0"
+    :quest='questions[curr]'
+                :next='next'
+                />
   </div>
 </template>
+
+
+<script>
+import Header from "./components/Header";
+import Questions from "./components/Questions";
+
+export default {
+  name: "app",
+  components: {
+    Header,
+    Questions
+  },
+  data(){
+    return{
+      curr: 0,
+      questions: []
+    }
+  },
+  mounted: function(){
+      fetch("https://opentdb.com/api.php?amount=16&category=11&difficulty=medium&type=multiple",{
+        method: "get"
+      })
+
+      .then((response) => {
+        return response.json();
+      })
+
+      .then((data) => {
+        this.questions = data.results;
+      })
+  },
+  methods:{
+    next(){
+      this.curr++;
+    }
+  }
+}
+</script>
 
 <style>
 #app {
@@ -15,18 +54,5 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
