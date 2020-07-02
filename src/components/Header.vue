@@ -10,7 +10,7 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item href="#" disabled>Score: 6 / 10</b-nav-item>
+        <b-nav-item href="#" disabled>Score: {{score}} / {{totalQuest}}</b-nav-item>
       </b-navbar-nav>
 
       
@@ -18,3 +18,18 @@
   </b-navbar>
     </div>
 </template>
+
+<script>
+export default {
+    props: {
+        score: Number,
+        totalQuest: Number
+    }
+}
+</script>
+
+<style scoped>
+.navbar-dark .navbar-nav .nav-link.disabled {
+    color: white;
+}
+</style>
