@@ -5,6 +5,7 @@
     v-if="this.questions.length>0"
     :quest='questions[curr]'
                 :next='next'
+                :num='curr'
                 />
   </div>
 </template>
@@ -42,6 +43,13 @@ export default {
   methods:{
     next(){
       this.curr++;
+      let answers = document.getElementsByClassName('opts');
+      for(let i=0;i<answers.length;i++){
+        answers[i].classList.remove('chose');
+        answers[i].classList.remove('red');
+        answers[i].classList.remove('green');
+      }
+
     }
   }
 }
