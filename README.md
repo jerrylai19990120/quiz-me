@@ -1,4 +1,5 @@
-# quiz-me
+# quiz-me \n
+Try it out with this link: https://quiz-me-1116.web.app
 
 ## Project setup
 ```
