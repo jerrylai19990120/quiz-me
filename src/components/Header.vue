@@ -1,10 +1,12 @@
 <template>
     <div class="header-nav">
         <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand href="#">
+    <router-link to="/">
+    <b-navbar-brand href="/">
         <img src="../assets/quiz.png" style="width: 30px" alt="">
         Quiz-Me
     </b-navbar-brand>
+    </router-link>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -32,4 +34,5 @@ export default {
 .navbar-dark .navbar-nav .nav-link.disabled {
     color: white;
 }
+
 </style>
