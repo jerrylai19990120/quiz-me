@@ -20,7 +20,7 @@
     :disabled='this.selected===null' v-if="(num+1)===16">Finish</b-button>
     
 
-    <b-button variant="success" href="#" @click="next" :disabled='this.selected===null'>Next</b-button>
+    <b-button variant="success" href="#" @click="()=>{next();this.selected=null;this.clicked=true;}" :disabled='this.clicked' v-if="(num+1)<16">Next</b-button>
 
     </b-jumbotron>
     </div>
@@ -58,7 +58,8 @@ export default {
             selected: null,
             correct: null,
             answers: [],
-            show: false
+            show: false,
+            clicked: true
         }
     },
     methods: {
@@ -76,6 +77,7 @@ export default {
                 document.getElementsByClassName('opts')[this.selected].classList.remove('chose');
                 document.getElementsByClassName('opts')[this.selected].classList.add('red');
             }
+            this.clicked = false;
         },
         finish(){
             this.show = true;
