@@ -4,14 +4,14 @@
         <b-jumbotron>
 
     <template v-slot:lead>
-        {{num+1}}. {{quest.question}}
+        {{num+1}}. {{quest.question.replace(/quot;/g, '"').replace(/&/g,"").replace(/#039;/g,"'")}}
     </template>
 
     <hr class="my-4">
 
     <b-list-group>
         <b-list-group-item class="opts" v-for="(opt, index) in opts" :key="index" @click="select(index)"
-        :class="selected===index? 'chose' : ''">{{opt}}</b-list-group-item>
+        :class="selected===index? 'chose' : ''">{{opt.replace(/oacute;/g,"ó").replace(/&/g, "").replace(/aacute;/g, "á").replace(/ntilde;/g, "ñ").replace(/#039;/g,"'").replace(/amp;/g,"&").replace(/quot;/g, '"')}}</b-list-group-item>
     </b-list-group>
     <b-button variant="primary" href="#" @click="submit()"
     :disabled='this.selected===null' v-if="(num+1)<16">Submit</b-button>

@@ -35,10 +35,8 @@
     <QuizCard class="quizCard" name='Grind dont stop' icon='sports' des='Sport guy? See how much you actually know about sports across the world.' path_quiz="/sports-quiz"/>
     <QuizCard class="quizCard" name='Musical vibe' icon='theater' des='Definitely the right place to see if you are a real musical fan.' path_quiz="/musical-quiz"/>
     <QuizCard class="quizCard" name='TV Geek' icon='tv' des='Wanna check out how good you are at all the shows?' path_quiz="/tv-quiz"/>
-    <QuizCard class="quizCard" name='Gamer or not?' icon='videoGame' des='Console and PC gamers. Conquer this quiz to prove that you are a real gamer.' path_quiz="/videoGame-quiz"/></b-card-group>
-    <div style="width: 100%; height: 66px; float:left;">
-
-    </div>
+    <QuizCard class="quizCard" name='Gamer or not?' icon='videoGame' des='Console and PC gamers. Conquer this quiz to prove that you are a real gamer.' path_quiz="/videoGame-quiz" style="margin-bottom:26px"/>
+    </b-card-group>
     </div>
     
     
@@ -62,5 +60,12 @@ export default {
 }
 .bg-info{
     background-color: #FC4444 !important;
+}
+.info{
+    width: 66px;
+    height: 66px;
+    margin-right: 68vw;
+    margin-top: -28vh;
+    float: left;
 }
 </style>
