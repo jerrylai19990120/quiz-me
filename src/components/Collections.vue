@@ -60,4 +60,7 @@ export default {
     margin-top: 36px;
     margin-right: 72px;
 }
+.bg-info{
+    background-color: #FC4444 !important;
+}
 </style>

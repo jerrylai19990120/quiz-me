@@ -34,5 +34,7 @@ export default {
 .navbar-dark .navbar-nav .nav-link.disabled {
     color: white;
 }
-
+.bg-info{
+    background-color: #FC4444 !important;
+}
 </style>

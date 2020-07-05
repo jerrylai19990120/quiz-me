@@ -28,3 +28,29 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.btn-primary {
+    color: #fff;
+    background-color: #FC4444;
+    border-color: #FC4444;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #d43838;
+    border-color: #d43838;
+}
+
+.btn-primary:focus {
+    color: #fff;
+    background-color: #FC4444;
+    border-color: #FC4444;
+}
+
+a{
+    color: #fff;
+    background-color: #FC4444;
+    border-color: #FC4444;
+}
+
+</style>

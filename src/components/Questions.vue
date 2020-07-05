@@ -154,4 +154,54 @@ export default {
     background-color: dodgerblue;
 }
 
+.btn-primary.disabled{
+    color: white;
+    background-color: #FC4444;
+    border: 1px solid #FC4444;
+}
+
+.btn-primary{
+    color: white;
+    background-color: #FC4444;
+    border: 1px solid #FC4444;
+}
+
+.btn-primary:focus{
+    color: white;
+    background-color: #FC4444;
+    border: 1px solid #FC4444;
+}
+
+.btn-primary:hover{
+    color: white;
+    background-color: #c92525;
+    border: 1px solid #c92525;
+}
+.btn{
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-top: 20px;
+}
+.btn-success {
+    color: #FC4444;
+    background-color: #05396B;
+    border-color: #FC4444
+}
+
+.btn-success:hover {
+    color: #05396B;
+    background-color: #FC4444;
+    border-color: #05396B;
+}
+.btn-success.disabled {
+    color: #FC4444;
+    background-color: #05396B;
+    border-color: #FC4444
+}
+.btn-success:focus {
+    color: #FC4444;
+    background-color: #05396B;
+    border-color: #FC4444
+}
+
 </style>
