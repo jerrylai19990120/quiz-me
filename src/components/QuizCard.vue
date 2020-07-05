@@ -12,8 +12,8 @@
     <b-card-text>
       {{des}}
     </b-card-text>
-    <router-link to="/movie-quiz">
-    <b-button href="/movie-quiz" variant="primary">Quiz</b-button></router-link>
+    <router-link :to="path_quiz">
+    <b-button :href="path_quiz" variant="primary" class="startBtns">Quiz</b-button></router-link>
   </b-card>
 </div>
 </template>
@@ -23,7 +23,8 @@ export default {
     props: {
         name: String,
         des: String,
-        icon: String
+        icon: String,
+        path_quiz: String
     }
 }
 </script>

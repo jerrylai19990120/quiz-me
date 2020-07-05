@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <div v-if="!show">
         <b-jumbotron>
 
     <template v-slot:lead>
@@ -13,9 +14,33 @@
         :class="selected===index? 'chose' : ''">{{opt}}</b-list-group-item>
     </b-list-group>
     <b-button variant="primary" href="#" @click="submit()"
-    :disabled='this.selected===null'>Submit</b-button>
+    :disabled='this.selected===null' v-if="(num+1)<16">Submit</b-button>
+
+    <b-button variant="primary" href="#" @click="finish()"
+    :disabled='this.selected===null' v-if="(num+1)===16">Finish</b-button>
+    
+
     <b-button variant="success" href="#" @click="next" :disabled='this.selected===null'>Next</b-button>
+
     </b-jumbotron>
+    </div>
+    <div v-if="show">
+        <b-jumbotron bg-variant="info" text-variant="white" border-variant="dark" style="margin-top:116px">
+    <template v-slot:header>Congratulation finishing up! </template>
+
+    <template v-slot:lead>
+        <span style="font-size: 36px">{{findScore}}</span>
+    </template>
+
+    <hr class="my-4">
+
+    <p>
+        <router-link to="/">
+            <b-button variant="primary" href="/">Back to Quizzes</b-button>
+        </router-link>
+    </p>
+  </b-jumbotron>
+    </div>
     </div>
 </template>
 
@@ -32,7 +57,8 @@ export default {
         return{
             selected: null,
             correct: null,
-            answers: []
+            answers: [],
+            show: false
         }
     },
     methods: {
@@ -40,6 +66,19 @@ export default {
             this.selected = index;
         },
         submit(){
+            this.addQuest();
+            if(this.selected===this.correct && this.selected !== null){
+                document.getElementsByClassName('opts')[this.correct].classList.remove('chose');
+                document.getElementsByClassName('opts')[this.correct].classList.add('green');
+                this.addScore();
+            }else if(this.selected!==this.correct && this.selected !== null){
+                document.getElementsByClassName('opts')[this.correct].classList.add('green');
+                document.getElementsByClassName('opts')[this.selected].classList.remove('chose');
+                document.getElementsByClassName('opts')[this.selected].classList.add('red');
+            }
+        },
+        finish(){
+            this.show = true;
             this.addQuest();
             if(this.selected===this.correct && this.selected !== null){
                 document.getElementsByClassName('opts')[this.correct].classList.remove('chose');
@@ -76,6 +115,10 @@ export default {
             this.shuffle(opts);
             this.options(opts);
             return opts;
+        },
+        findScore(){
+            let score = document.getElementsByClassName('disabled')[0].innerHTML;
+            return score;
         }
     }
 }

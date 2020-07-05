@@ -19,7 +19,10 @@ import Header from "./Header";
 import Questions from "./Questions";
 
 export default {
-  name: "app",
+  props: {
+      my_quiz: String,
+      show: Boolean
+  },
   components: {
     Header,
     Questions
@@ -33,17 +36,7 @@ export default {
     }
   },
   mounted: function(){
-      fetch("https://opentdb.com/api.php?amount=16&category=11&difficulty=medium&type=multiple",{
-        method: "get"
-      })
-
-      .then((response) => {
-        return response.json();
-      })
-
-      .then((data) => {
-        this.questions = data.results;
-      })
+      this.fetchData(this.my_quiz);
   },
   methods:{
     next(){
@@ -60,7 +53,21 @@ export default {
     },
     addQuest(){
       this.total++;
+    },
+    fetchData(url){
+        fetch(url ,{
+        method: "get"
+      })
+
+      .then((response) => {
+        return response.json();
+      })
+
+      .then((data) => {
+        this.questions = data.results;
+      })
     }
+    
   }
 }
 </script>
