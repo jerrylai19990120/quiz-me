@@ -12,6 +12,8 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
+        <router-link to="/">
+        <b-nav-item href='/'>Back</b-nav-item></router-link>
         <b-nav-item href="#" disabled>Score: {{score}} / {{totalQuest}}</b-nav-item>
       </b-navbar-nav>
 
@@ -36,5 +38,8 @@ export default {
 }
 .bg-info{
     background-color: #FC4444 !important;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
 }
 </style>
